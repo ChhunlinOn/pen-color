@@ -25,9 +25,23 @@ function createPenElement(pen) {
   return penDiv;
 }
 
+let url='https://pens-api.vercel.app/api/pens/color/{color}';
+
 function getAllPens() {
+
+
   // Fetch pen colors from API
+  fetch(url)
+  .then((response) => {
+    return response.json();
+  })
+  .then((data) => {
+    console.log(data);
+  })
+  .catch((error) => console.error("Error:", error));
+
   //1. API : Replace pens data by fetching from API
+
   let pens = [
     { id: 1, name: "Pen 1", color: "red" },
     { id: 2, name: "Pen 2", color: "blue" },
